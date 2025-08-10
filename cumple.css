@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffebf3;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.birthday-message {
+    color: #d6336c;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 1.5s forwards 3s;
+}
+
+.cake {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.plate {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 40px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 0.5s;
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.layer-bottom {
+    bottom: 0;
+    width: 200px;
+    height: 80px;
+    background-color: #f8a5c2;
+    animation: fadeIn 0.5s forwards 1s, buildCake 0.5s forwards 1s;
+}
+
+.layer-middle {
+    bottom: 70px;
+    width: 160px;
+    height: 60px;
+    background-color: #f78fb3;
+    animation: fadeIn 0.5s forwards 1.5s, buildCake 0.5s forwards 1.5s;
+}
+
+.layer-top {
+    bottom: 120px;
+    width: 120px;
+    height: 40px;
+    background-color: #f06292;
+    animation: fadeIn 0.5s forwards 2s, buildCake 0.5s forwards 2s;
+}
+
+.icing {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50% 50% 0 0;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 2.5s;
+}
+
+.candle {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 30px;
+    background-color: #ffd700;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 3s;
+}
+
+.flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 15px;
+    background-color: #ff9e00;
+    border-radius: 50% 50% 20% 20%;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 3.5s, flicker 1s infinite 4s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes buildCake {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--final-height);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0.8;
+    }
+}

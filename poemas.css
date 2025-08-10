@@ -1,0 +1,294 @@
+/* Estilos base */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --accent-color: #00cec9;
+    --dark-color: #2d3436;
+    --light-color: #f5f6fa;
+    --text-color: #2d3436;
+    --text-light: #f5f6fa;
+    --transition-speed: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f5f2;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.poetry-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    perspective: 1000px;
+}
+
+.poetry-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating-particle {
+    position: absolute;
+    background-color: rgba(108, 92, 231, 0.1);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+.floating-particle:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    left: -50px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.15), transparent 70%);
+    animation-duration: 25s;
+}
+
+.floating-particle:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    right: 10%;
+    background: radial-gradient(circle, rgba(0, 206, 201, 0.1), transparent 70%);
+    animation-duration: 20s;
+    animation-delay: 5s;
+}
+
+.floating-particle:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 60%;
+    background: radial-gradient(circle, rgba(162, 155, 254, 0.1), transparent 70%);
+    animation-duration: 30s;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(50px, 50px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+.poetry-card {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: transform var(--transition-speed) ease;
+    overflow: hidden;
+}
+
+.poetry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.poetry-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.poetry-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--dark-color);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.poetry-content {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.poem-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-speed) ease;
+}
+
+.poem-line.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.poem-line::before, .poem-line::after {
+    content: '"';
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    opacity: 0.5;
+    position: absolute;
+}
+
+.poem-line::before {
+    left: -5px;
+    top: -10px;
+}
+
+.poem-line::after {
+    right: -5px;
+    bottom: -15px;
+}
+
+.poetry-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poetry-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.poetry-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+}
+
+.poetry-button:active {
+    transform: translateY(1px);
+}
+
+.poetry-button svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+
+.author-signature {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--dark-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-speed) ease;
+}
+
+.author-signature.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardTilt {
+    0% {
+        transform: rotateX(0) rotateY(0);
+    }
+    50% {
+        transform: rotateX(2deg) rotateY(2deg);
+    }
+    100% {
+        transform: rotateX(0) rotateY(0);
+    }
+}
+
+/* Efecto de tilt al mover el mouse */
+.poetry-card:hover {
+    transform: rotateX(1deg) rotateY(1deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .poetry-card {
+        padding: 30px 20px;
+    }
+    
+    .poetry-header h1 {
+        font-size: 2rem;
+    }
+    
+    .poem-line {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .poetry-content {
+        min-height: 200px;
+    }
+    
+    .poem-line {
+        font-size: 1.1rem;
+    }
+    
+    .poetry-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+}

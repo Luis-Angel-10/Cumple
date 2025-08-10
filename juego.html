@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Fisioterapia</title>
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Test de Fisioterapia</h1>
+            <div class="level-info">
+                <span id="levelDisplay">Nivel: 1</span>
+                <span id="scoreDisplay">Puntos: 0</span>
+                <span id="questionCount">Pregunta: 1/10</span>
+            </div>
+        </div>
+        
+        <div class="game-body">
+            <div id="startScreen" class="screen active">
+                <h2>Bienvenido al Test</h2>
+                <p>Responde correctamente las preguntas de fisioterapia que aumentarán en dificultad.</p>
+                <button id="startBtn" class="game-btn">Comenzar</button>
+            </div>
+            
+            <div id="questionScreen" class="screen">
+                <div class="progress-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <h2 id="questionText">Pregunta aquí</h2>
+                <div id="optionsContainer" class="options-container">
+                    <!-- Las opciones se generarán dinámicamente -->
+                </div>
+            </div>
+            
+            <div id="feedbackScreen" class="screen">
+                <div id="feedbackIcon"></div>
+                <h2 id="feedbackTitle"></h2>
+                <p id="feedbackText"></p>
+                <button id="continueBtn" class="game-btn">Continuar</button>
+            </div>
+            
+            <div id="endScreen" class="screen">
+                <h2 id="endTitle">¡Juego completado!</h2>
+                <p id="endText">Has completado todos los niveles.</p>
+                <div class="final-score">
+                    <p>Puntuación final: <span id="finalScore">0</span>/50</p>
+                </div>
+                <button id="restartBtn" class="game-btn">Jugar de nuevo</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="juego.js"></script>
+</body>
+</html>
