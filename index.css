@@ -3,11 +3,12 @@
     --primary-color: #6c5ce7;
     --secondary-color: #a29bfe;
     --dark-color: #2d3436;
-    --light-color: #f5f6fa;
+    --light-color: #0933dc;
     --accent-color: #00cec9;
     --text-color: #2d3436;
     --text-light: #f5f6fa;
     --transition-speed: 0.4s;
+    --transition-easing: ease-in-out;
 }
 
 /* Modo oscuro */
@@ -30,12 +31,22 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--light-color);
     color: var(--text-color);
-    transition: background-color var(--transition-speed);
+    transition: all var(--transition-speed) var(--transition-easing);
     overflow: hidden;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.universe-menu,
+.menu-background,
+.menu-container,
+.menu-item,
+.toggle-switch,
+.menu-title,
+.mode-toggle i {
+    transition: all var(--transition-speed) var(--transition-easing);
 }
 
 .universe-menu {
@@ -62,50 +73,6 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     animation: float 15s infinite linear;
-}
-
-.particle:nth-child(1) {
-    width: 5px;
-    height: 5px;
-    top: 10%;
-    left: 20%;
-    animation-duration: 20s;
-}
-
-.particle:nth-child(2) {
-    width: 8px;
-    height: 8px;
-    top: 60%;
-    left: 70%;
-    animation-duration: 15s;
-    animation-delay: 2s;
-}
-
-.particle:nth-child(3) {
-    width: 3px;
-    height: 3px;
-    top: 30%;
-    left: 50%;
-    animation-duration: 25s;
-    animation-delay: 1s;
-}
-
-.particle:nth-child(4) {
-    width: 6px;
-    height: 6px;
-    top: 80%;
-    left: 30%;
-    animation-duration: 18s;
-    animation-delay: 3s;
-}
-
-.particle:nth-child(5) {
-    width: 4px;
-    height: 4px;
-    top: 40%;
-    left: 80%;
-    animation-duration: 22s;
-    animation-delay: 0.5s;
 }
 
 @keyframes float {
@@ -217,7 +184,6 @@ body {
     align-items: center;
     cursor: pointer;
     overflow: hidden;
-    transition: all var(--transition-speed);
 }
 
 .menu-item:hover {
@@ -225,20 +191,11 @@ body {
     transform: translateX(10px);
 }
 
-.menu-item.active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 .menu-item i {
     font-size: 1.2rem;
     margin-right: 15px;
     width: 20px;
     text-align: center;
-}
-
-.menu-item span {
-    font-size: 1rem;
-    font-weight: 500;
 }
 
 .hover-effect {
@@ -268,6 +225,14 @@ body {
     color: var(--text-light);
 }
 
+.dark-mode .mode-toggle i.fa-sun {
+    color: #ffd700;
+}
+
+.dark-mode .mode-toggle i.fa-moon {
+    color: #1607e7;
+}
+
 .toggle-switch {
     width: 50px;
     height: 25px;
@@ -275,7 +240,6 @@ body {
     border-radius: 25px;
     position: relative;
     cursor: pointer;
-    transition: background-color var(--transition-speed);
 }
 
 .toggle-circle {
@@ -286,7 +250,7 @@ body {
     border-radius: 50%;
     top: 2px;
     left: 2px;
-    transition: transform var(--transition-speed);
+    transition: transform var(--transition-speed) var(--transition-easing);
 }
 
 .dark-mode .toggle-circle {
@@ -294,19 +258,14 @@ body {
 }
 
 /* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.menu-item {
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
 }
 
 @keyframes slideIn {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
-}
-
-.menu-item {
-    animation: slideIn 0.5s ease forwards;
-    opacity: 0;
 }
 
 .menu-item:nth-child(1) { animation-delay: 0.1s; }

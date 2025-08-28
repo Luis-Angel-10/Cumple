@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Dianita</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <div class="universe-menu">
         <div class="menu-background">
@@ -16,7 +18,7 @@
             <div class="particle"></div>
             <div class="particle"></div>
         </div>
-        
+
         <div class="menu-container">
             <div class="menu-header">
                 <h1 class="menu-title">Para Dianita</h1>
@@ -24,7 +26,7 @@
                     <div class="hamburger"></div>
                 </div>
             </div>
-            
+
             <nav class="menu-nav" id="menuNav">
                 <ul class="menu-list">
                     <li class="menu-item" data-section="pastel">
@@ -43,25 +45,31 @@
                         <div class="hover-effect"></div>
                     </li>
                     <li class="menu-item" data-section="juego">
-                         <i class="fas fa-gamepad"></i>
+                        <i class="fas fa-gamepad"></i>
                         <span>Jueguito</span>
                         <div class="hover-effect"></div>
                     </li>
+                    <li class="menu-item" data-section="mensaje">
+                        <i class="fas fa-gift"></i>
+                        <span>Sorpresa</span>
+                        <div class="hover-effect"></div>
+                    </li>
+
                 </ul>
             </nav>
-            
-            <div class="menu-footer">
-                <div class="mode-toggle">
-                    <i class="fas fa-moon"></i>
-                    <div class="toggle-switch">
-                        <div class="toggle-circle"></div>
-                    </div>
-                    <i class="fas fa-sun"></i>
+
+            <div class="mode-toggle">
+                <i class="fas fa-sun"></i>
+                <div class="toggle-switch" id="toggleSwitch">
+                    <div class="toggle-circle"></div>
                 </div>
+                <i class="fas fa-moon"></i>
             </div>
+
         </div>
     </div>
-    
+
     <script src="index.js"></script>
 </body>
+
 </html>
