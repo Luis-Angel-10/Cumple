@@ -28,10 +28,11 @@
                 <p class="poem-line fade-in">el viaje de las palabras</p>
                 <p class="poem-line fade-in">que laten en el corazón del tiempo...</p>
             </div>
-            
+            <button id="backButton">Regresar</button>
             <div class="poetry-footer">
                 <button id="generateBtn" class="poetry-button">
                     <span>Generar Poema</span>
+                    
                     <svg class="feather feather-feather" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
                         <line x1="16" y1="8" x2="2" x2="8"></line>
@@ -42,6 +43,36 @@
             </div>
         </div>
     </div>
+
+    <style>
+        /* Estilo para ambos botones */
+        #startButton,
+        #backButton {
+            padding: 10px 20px;
+            margin: 10px 5px 0 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #startButton:hover,
+        #backButton:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+        }
+    </style>
+
+     <script>
+        // Funcionalidad del botón regresar
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
 
     <script src="poemas.js"></script>
 </body>

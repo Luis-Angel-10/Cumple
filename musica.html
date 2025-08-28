@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,16 @@
     <link rel="stylesheet" href="musica.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="collage-container">
         <h1 class="collage-title">Galería Interactiva</h1>
         <p class="collage-subtitle">Haz clic en cualquier imagen para explorar</p>
-        
+
         <div class="collage-grid">
             <!-- Item 1 -->
-            <div class="collage-item" data-link="https://open.spotify.com/intl-es/track/7l1qvxWjxcKpB9PCtBuTbU?si=0fdb5744a808494e">
+            <div class="collage-item"
+                data-link="https://open.spotify.com/intl-es/track/7l1qvxWjxcKpB9PCtBuTbU?si=0fdb5744a808494e">
                 <img src="img1.jpg" alt="Imagen 1">
                 <div class="item-overlay">
                     <h3>Amiguitos</h3>
@@ -22,19 +25,21 @@
                     <div class="zoom-icon"><i class="fas fa-expand"></i></div>
                 </div>
             </div>
-            
+
             <!-- Item 2 -->
-            <div class="collage-item" data-link="https://open.spotify.com/intl-es/track/35ttE4t8lQZA2vuCYDg4G7?si=3089c59c2dd44e84"">
-                <img src="img2.jpg" alt="Imagen 2">
+            <div class="collage-item"
+                data-link="https://open.spotify.com/intl-es/track/35ttE4t8lQZA2vuCYDg4G7?si=3089c59c2dd44e84"">
+                <img src=" img2.jpg" alt="Imagen 2">
                 <div class="item-overlay">
                     <h3>Te quiero dianita</h3>
-                    <p>Eres la mejor amiga que puedo desear</p>
+                    <p>Eres la mejor amiga que puede desear</p>
                     <div class="zoom-icon"><i class="fas fa-expand"></i></div>
                 </div>
             </div>
-            
+
             <!-- Item 3 -->
-            <div class="collage-item" data-link="https://open.spotify.com/intl-es/track/5zCJvrT3C7cIfHsR5iG95l?si=65f305ae2f764abb">
+            <div class="collage-item"
+                data-link="https://open.spotify.com/intl-es/track/5zCJvrT3C7cIfHsR5iG95l?si=65f305ae2f764abb">
                 <img src="img3.jpg" alt="Imagen 3">
                 <div class="item-overlay">
                     <h3>Mugrosa</h3>
@@ -42,9 +47,10 @@
                     <div class="zoom-icon"><i class="fas fa-expand"></i></div>
                 </div>
             </div>
-            
+
             <!-- Item 4 -->
-            <div class="collage-item" data-link="https://open.spotify.com/intl-es/track/4X6aeSW2bhlbm7YyEstj6Y?si=c6cbccdf8e78426b">
+            <div class="collage-item"
+                data-link="https://open.spotify.com/intl-es/track/4X6aeSW2bhlbm7YyEstj6Y?si=c6cbccdf8e78426b">
                 <img src="gatito.jpg" alt="Imagen 4">
                 <div class="item-overlay">
                     <h3>Tu nene</h3>
@@ -52,9 +58,10 @@
                     <div class="zoom-icon"><i class="fas fa-expand"></i></div>
                 </div>
             </div>
-            
+
             <!-- Item 5 -->
-            <div class="collage-item" data-link="https://open.spotify.com/intl-es/track/6OzAkuRDmEpd52RF1g1WvU?si=fa1d750bbb434add">
+            <div class="collage-item"
+                data-link="https://open.spotify.com/intl-es/track/6OzAkuRDmEpd52RF1g1WvU?si=fa1d750bbb434add">
                 <img src="img5.jpg" alt="Imagen 5">
                 <div class="item-overlay">
                     <h3>Tas chiquita</h3>
@@ -62,9 +69,10 @@
                     <div class="zoom-icon"><i class="fas fa-expand"></i></div>
                 </div>
             </div>
-            
+
             <!-- Item 6 -->
-            <div class="collage-item" data-link="https://open.spotify.com/intl-es/track/1PREzVLuDT6PSE9sej4wnV?si=83866df9fb6643cb">
+            <div class="collage-item"
+                data-link="https://open.spotify.com/intl-es/track/1PREzVLuDT6PSE9sej4wnV?si=83866df9fb6643cb">
                 <img src="img6.jpg" alt="Imagen 6">
                 <div class="item-overlay">
                     <h3>Ojo Alegre</h3>
@@ -74,7 +82,36 @@
             </div>
         </div>
     </div>
+    <button id="backButton">Regresar</button>
+    <style>
+        /* Estilo para ambos botones */
+        #startButton,
+        #backButton {
+            padding: 10px 20px;
+            margin: 10px 5px 0 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
+        #startButton:hover,
+        #backButton:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+        }
+    </style>
+    <script>
+        // Funcionalidad del botón regresar
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
     <script src="musica.js"></script>
 </body>
+
 </html>

@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Fisioterapia</title>
+    <title>Juego de Fisioterapia por Niveles</title>
     <link rel="stylesheet" href="juego.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilo para ambos botones */
+        #startBtn,
+        #backButton {
+            padding: 10px 20px;
+            margin: 10px 5px 0 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #startBtn:hover,
+        #backButton:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+        }
+    </style>
 </head>
 <body>
     <div class="game-container">
@@ -21,8 +42,19 @@
         <div class="game-body">
             <div id="startScreen" class="screen active">
                 <h2>Bienvenido al Test</h2>
-                <p>Responde correctamente las preguntas de fisioterapia que aumentarán en dificultad.</p>
+                <p>Selecciona un nivel de dificultad y responde correctamente las preguntas de fisioterapia.</p>
+                <div class="level-selector">
+                    <h3>Selecciona el nivel:</h3>
+                    <div class="level-buttons">
+                        <button class="level-btn" data-level="1">Nivel 1<br>Básico</button>
+                        <button class="level-btn" data-level="2">Nivel 2<br>Intermedio</button>
+                        <button class="level-btn" data-level="3">Nivel 3<br>Avanzado</button>
+                        <button class="level-btn" data-level="4">Nivel 4<br>Experto</button>
+                        <button class="level-btn" data-level="5">Nivel 5<br>Master</button>
+                    </div>
+                </div>
                 <button id="startBtn" class="game-btn">Comenzar</button>
+                <button id="backButton">Regresar</button>
             </div>
             
             <div id="questionScreen" class="screen">
@@ -52,7 +84,14 @@
             </div>
         </div>
     </div>
-    
+
     <script src="juego.js"></script>
+    <script>
+        // Funcionalidad del botón regresar
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>

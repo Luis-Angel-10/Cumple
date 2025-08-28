@@ -11,7 +11,15 @@
         <h1>Mensaje Mágico ✨</h1>
         <div id="magicMessage" class="magic-message"></div>
         <button id="startButton">Mostrar mensaje</button>
+        <button id="backButton">Regresar</button>
     </div>
     <script src="mensaje.js"></script>
+      <script>
+        // Funcionalidad del botón regresar
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>

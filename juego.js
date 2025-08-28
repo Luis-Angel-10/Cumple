@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Variables del juego
     const gameState = {
         currentLevel: 1,
+        selectedLevel: 1,
         score: 0,
         currentQuestionIndex: 0,
         totalQuestions: 0,
@@ -367,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializar el juego
     function initGame() {
-        gameState.currentLevel = 1;
+        gameState.currentLevel = gameState.selectedLevel;
         gameState.score = 0;
         gameState.currentQuestionIndex = 0;
         gameState.usedQuestionIds = new Set();
@@ -381,19 +382,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function showQuestion() {
         // Verificar si hemos completado todas las preguntas del nivel
         if (gameState.currentQuestionIndex >= gameState.totalQuestionsPerLevel) {
-            gameState.currentLevel++;
-
-            // Verificar si hemos completado todos los niveles
-            if (gameState.currentLevel > gameState.totalLevels) {
-                endGame();
-                return;
-            }
-
-            // Preparar el siguiente nivel
-            gameState.currentQuestionIndex = 0;
-            gameState.questions = [...questionsByLevel[gameState.currentLevel]];
-            shuffleArray(gameState.questions);
-            gameState.usedQuestionIds = new Set();
+            endGame();
+            return;
         }
 
         // Obtener la pregunta actual
@@ -417,9 +407,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateDisplays();
 
         // Actualizar barra de progreso
-        const totalQuestions = gameState.totalLevels * gameState.totalQuestionsPerLevel;
-        const answeredQuestions = (gameState.currentLevel - 1) * gameState.totalQuestionsPerLevel + gameState.currentQuestionIndex - 1;
-        const progress = (answeredQuestions / totalQuestions) * 100;
+        const progress = (gameState.currentQuestionIndex / gameState.totalQuestionsPerLevel) * 100;
         elements.progressBar.style.width = `${progress}%`;
 
         // Mostrar pantalla de pregunta
@@ -480,6 +468,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Configurar selector de niveles
+    function setupLevelSelector() {
+        const levelButtons = document.querySelectorAll('.level-btn');
+        
+        levelButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remover clase selected de todos los botones
+                levelButtons.forEach(btn => btn.classList.remove('selected'));
+                
+                // Añadir clase selected al botón clickeado
+                this.classList.add('selected');
+                
+                // Actualizar nivel seleccionado
+                gameState.selectedLevel = parseInt(this.getAttribute('data-level'));
+            });
+        });
+        
+        // Seleccionar el primer nivel por defecto
+        levelButtons[0].classList.add('selected');
+    }
+
+    // Inicializar
+    setupLevelSelector();
+
     // Event listeners
     elements.startBtn.addEventListener('click', function () {
         initGame();
@@ -489,7 +501,6 @@ document.addEventListener('DOMContentLoaded', function () {
     elements.continueBtn.addEventListener('click', showQuestion);
 
     elements.restartBtn.addEventListener('click', function () {
-        initGame();
-        showQuestion();
+        changeScreen('startScreen');
     });
 });
